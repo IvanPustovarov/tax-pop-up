@@ -3,6 +3,7 @@ import PaymentTable from "./PaymentTable";
 
 const PopForm = ({ isClose }) => {
   const [salary, setSalary] = useState("");
+  const [payments, setPayments] = useState([]);
 
   const handleClick = (state) => {
     isClose(state);
@@ -14,6 +15,24 @@ const PopForm = ({ isClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setPayments(calculatePay(salary));
+  };
+
+  const calculatePay = (payment) => {
+    const resultArray = [];
+    const MAX = 260000;
+    const paymentOfYear = Math.ceil(payment * 12 * 0.13);
+    console.log("paymentOfYear: ", paymentOfYear);
+    const pay = Math.floor(MAX / paymentOfYear);
+    console.log("pay", pay);
+    const residue = MAX - pay * paymentOfYear;
+    console.log("residue: ", residue);
+    for (let index = 0; index < pay; index++) {
+      resultArray.push(paymentOfYear);
+    }
+    resultArray.push(residue);
+    console.log(resultArray);
+    return resultArray;
   };
 
   return (
@@ -33,7 +52,7 @@ const PopForm = ({ isClose }) => {
           onChange={handleChange}
         />
         <span>Рассчитать</span>
-        {<PaymentTable />}
+        {payments ? <PaymentTable payments={payments} /> : null}
         <div>
           <span>Что уменьшаем ?</span>
           <button>Платёж</button>

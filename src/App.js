@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./App.scss";
+import "./style/App.scss";
 import PopForm from "./components/PopForm";
 
 const App = () => {
