@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import PaymentTable from "./PaymentTable";
 import "../style/PopForm.scss";
 
-const PopForm = ({ isClose }) => {
+const PopForm = ({ onClose }) => {
   const [salary, setSalary] = useState("");
   const [payments, setPayments] = useState([]);
   const [reduceOption, setReduceOption] = useState("term");
 
-  const handleClick = (state) => {
-    isClose(state);
+  const handleClick = () => {
+    onClose(true);
   };
 
   const handleChange = (event) => {
@@ -46,7 +46,7 @@ const PopForm = ({ isClose }) => {
         <div className="pop-up-main__window__close">
           <h1>Налоговый вычет</h1>
           <button
-            onClick={() => handleClick(true)}
+            onClick={handleClick}
             className="pop-up-main__window__close__close-button"
           >
             X

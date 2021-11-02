@@ -3,27 +3,25 @@ import "./style/App.scss";
 import PopForm from "./components/PopForm";
 
 const App = () => {
-  const [popUp, setPopUp] = useState(false);
+  const [isPopUpOpen, setIsPopUpOpen] = useState(false);
   const handleClick = (state) => {
-    setPopUp(state);
+    setIsPopUpOpen(state);
   };
-  const isClose = (state) => {
-    setPopUp(!state);
+
+  const handleClose = () => {
+    handleClick(!isPopUpOpen);
   };
 
   return (
     <>
-      {!popUp ? (
+      {!isPopUpOpen ? (
         <div className="main-page" style={{ backgroundColor: "#ff4f4f" }}>
-          <button
-            onClick={() => handleClick(!popUp)}
-            className="main-page__button"
-          >
+          <button onClick={handleClose} className="main-page__button">
             Налоговый вычет
           </button>
         </div>
       ) : null}
-      {popUp ? <PopForm isClose={isClose} /> : null}
+      {isPopUpOpen ? <PopForm onClose={handleClose} /> : null}
     </>
   );
 };
