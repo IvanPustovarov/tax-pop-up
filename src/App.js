@@ -12,12 +12,19 @@ const App = () => {
   };
 
   return (
-    <div>
+    <>
       {!popUp ? (
-        <button onClick={() => handleClick(!popUp)}>Налоговый вычет</button>
+        <div className="main-page" style={{ backgroundColor: "#ff4f4f" }}>
+          <button
+            onClick={() => handleClick(!popUp)}
+            className="main-page__button"
+          >
+            Налоговый вычет
+          </button>
+        </div>
       ) : null}
       {popUp ? <PopForm isClose={isClose} /> : null}
-    </div>
+    </>
   );
 };
 

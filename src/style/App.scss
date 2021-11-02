@@ -1,0 +1,17 @@
+.main-page {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__button {
+    background-color: #ff4f4f;
+    height: 3em;
+    padding: 0.5em 2em 0.5em 2em;
+    color: white;
+    border-radius: 0.3em;
+    border-color: white;
+    border-width: 0px;
+    outline: 1px solid white;
+    cursor: pointer;
+  }
+}
