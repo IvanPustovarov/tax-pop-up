@@ -44,7 +44,7 @@ const PopForm = ({ onClose }) => {
     <div className="pop-up-main">
       <div className="pop-up-main__window">
         <div className="pop-up-main__window__close">
-          <h1>Налоговый вычет</h1>
+          <h1 className="pop-up-main__window__close__text">Налоговый вычет</h1>
           <button
             onClick={handleClick}
             className="pop-up-main__window__close__close-button"

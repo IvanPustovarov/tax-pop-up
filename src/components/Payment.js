@@ -9,7 +9,7 @@ const Payment = ({ pay, index }) => {
         <span className="pay__sum">{pay} рублей</span>
         <span className="pay__year">в {index + 1}-й год</span>
       </div>
-      <hr style={{ width: "37em" }} />
+      <hr className="horizontal" />
     </>
   );
 };
